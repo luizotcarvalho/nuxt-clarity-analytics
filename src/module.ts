@@ -13,6 +13,10 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {},
   setup() {
+    if (nuxt.options._prepare) {
+      return
+    }
+    
     const { resolve } = createResolver(import.meta.url)
 
     updateRuntimeConfig({
